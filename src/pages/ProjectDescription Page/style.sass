@@ -1,0 +1,29 @@
+@import '../../styles//helpers/mixins'
+@import '../../styles//helpers/variables'
+
+.project-content
+    width: $containerWidth
+    margin: auto
+    padding: 6vw 0
+    h1
+        margin-bottom: 10%
+    p
+        font-size: clamp(1vw,18px,5vw)
+        font-weight: 200
+
+    @media screen and (max-width: 450px)
+        width: 95%
+        text-align: justify
+
+.img-container-dp
+    width: 99%
+    margin: auto
+    margin-bottom: 2vw
+    overflow: hidden
+    height: 96vh
+    padding: 2vw 0
+    @media screen and (max-width: 450px)
+        overflow: auto
+        height: auto
+        img
+            max-width: 250%

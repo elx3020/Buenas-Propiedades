@@ -1,0 +1,22 @@
+@import "../../styles/helpers/variables.sass";
+@import "../../styles/helpers/mixins.sass";
+
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: $secondaryColorBackground;
+  position: absolute;
+  z-index: 4;
+  overflow: hidden;
+  animation: circle 1s cubic-bezier(0.77, 0, 0.18, 1) 0.2s 1 forwards;
+
+  &.hide {
+    display: none;
+  }
+
+  @keyframes circle {
+    100% {
+      width: 0;
+    }
+  }
+}

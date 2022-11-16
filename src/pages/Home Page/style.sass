@@ -1,0 +1,40 @@
+@import "../../styles/helpers/variables"
+@import "../../styles/helpers/mixins"
+
+.messages-section
+    @include centerFlex($direction: row,$justifyContent: center)
+    height: 110vh
+    padding: 0 7%
+    column-gap: 5%
+    row-gap: 5%
+    overflow: hidden
+
+.two-column
+    @include centerFlex($direction: row ,$justifyContent: center )
+
+    h2
+        margin: 10% 0
+        font-size: clamp(1vw, 70px,5vw)
+        padding-left: 15px
+        line-height: 90%
+        text-align: right
+        color: #181818
+        font-weight: 300
+.mini-project-content
+    @include centerFlex($direction: row,$justifyContent: none )
+    column-gap: 20px
+
+    h2
+        font-size: clamp(5vw, 75px,8vw)
+        text-align: right
+
+        @media screen and (max-width: 450px)
+            width: 100%
+            font-weight: 300
+
+.span-arrow
+    position: relative
+    display: flex
+    justify-content: flex-end
+    .triangle
+        width: 55px

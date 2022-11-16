@@ -1,0 +1,22 @@
+@import "../../../styles/helpers/variables"
+@import "../../../styles/helpers/mixins"
+
+.Navbar
+    @include navBarElement($secondaryColorBackground,$mainColorBackground)
+    position: fixed
+    transition: transform 0.2s ease-in-out
+
+    .nav_links
+        a
+            color: inherit
+            text-decoration: none
+            padding: 0 20px 0 10px
+
+    &.hide
+        overflow: hidden
+
+    &.down
+        transform: translateY(-100%)
+
+    @media screen and(max-width: 450px)
+        transform: translateY(-100%)

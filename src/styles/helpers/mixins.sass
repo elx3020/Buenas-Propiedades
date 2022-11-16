@@ -1,0 +1,82 @@
+@import "./variables"
+
+@mixin navBarElement($colorbackground,$colortext)
+    background-color: $colorbackground
+    width: 100%
+    padding: 2% 1%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: $colortext
+    font-weight: 200
+    font-size: 1.1rem
+    top: 0%
+    z-index: 1
+    overflow: hidden
+
+@mixin centerFlex($direction,$justifyContent)
+    display: flex
+    flex-direction: $direction
+    align-items: center
+    justify-content: $justifyContent
+    @media screen and (max-width: 450px)
+        flex-direction: column
+
+@mixin fillScreenDiv($BackgroundColor, $colorText,$width, $height)
+    width: $width
+    height: $height
+    background-color: $BackgroundColor
+    color: $colorText
+    overflow: hidden
+
+@mixin basicButton($BackgroundColor)
+    background: $BackgroundColor
+    color: inherit
+    border: none
+    padding: 0
+    font: inherit
+    cursor: pointer
+    outline: inherit
+
+@mixin setAnchorAsButton($BackgroundColor)
+    background: $BackgroundColor
+    text-decoration: none
+    color: inherit
+
+@mixin imageInsideDiv($max-width)
+    max-width: $max-width
+    max-height: auto
+
+@mixin centerImageInsideRelativeDiv()
+    position: absolute
+    top: 50%
+    right: 0%
+    left: 50%
+    bottom: 0%
+    z-index: 0
+    transform: translate(-50%,-50%)
+
+@mixin removeDefaultLinkStyle()
+    text-decoration: none
+    color: inherit
+
+@mixin anchorStyle()
+    color: $secondaryColorBackground
+    text-decoration: none
+    border: 1.5px solid $secondaryColorBackground
+    padding: 1vw
+    border-radius: 3px
+    line-height: 90%
+    font-size: clamp(1vw,18px,5vw)
+    transition: all 0.2s ease-in-out
+    font-weight: 300
+    &:hover
+        background-color: $colorSecondary
+
+@mixin mobileCardAnimation()
+    opacity: 0
+    transform: translateY(80px)
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out
+    &.is-reveal
+        opacity: 1
+        transform: translateY(0)

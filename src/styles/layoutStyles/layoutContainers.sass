@@ -1,0 +1,277 @@
+@import "../helpers/variables"
+@import "../helpers/mixins"
+
+// main colors light theme
+// $mainColorBackground: #EDF6F0
+// $secondaryColorBackground: #231C07
+// $colorSecondary: #7F96FF
+// $colorTerciary: #DEFF7F
+// $colorEnphasis: #FF7F7F
+// font
+// $fontFamily: 'Josefin Sans', sans-serif
+
+// hero container styles
+
+.hero-wrapper
+    display: flex
+    position: relative
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 110vh
+    background-color: $secondaryColorBackground
+    overflow: hidden
+    .hero-paralax-image
+        position: absolute
+        top: 50%
+        right: 0%
+        left: 50%
+        bottom: 0%
+        z-index: 0
+        transform: translate(-50%,-50%)
+
+    .hero-content
+        color: $mainColorBackground
+        position: absolute
+        right: 2%
+        bottom: 17%
+        h1
+            // position: absolute
+            font-size: clamp(1vw, 190px, 14vw)
+            font-weight: 800
+            line-height: 85%
+
+        p
+            font-size: clamp(1vw, 34px,4.5vw)
+            font-weight: 100
+
+        @media screen and(max-width: 450px)
+            right: 0
+            display: flex
+            flex-direction: column
+            row-gap: 10px
+            align-items: center
+            justify-content: center
+            .flag-img
+                bottom: -38%
+                max-width: 15%
+            .triangle
+                max-width: 8%
+                top: -35%
+                left: 30%
+            .circle-line
+                top: -25%
+                right: 31%
+                max-width: 7%
+
+    .location-text
+        color: $mainColorBackground
+        position: absolute
+        left: -3%
+        transform: rotate(-90deg)
+        @media screen and(max-width: 450px)
+            font-size: 11px
+
+    .flag-img
+        position: absolute
+        right: 2%
+
+    img
+        max-width: none
+
+    .triangle
+        position: absolute
+        left: 24%
+    .circle-line
+        position: absolute
+        right: 25.5%
+
+    .line
+        position: absolute
+        left: 5%
+        bottom: 0%
+    &.two
+        left: 8%
+
+//card container
+
+.cards-wrapper
+    @include centerFlex($direction: row,$justifyContent: center )
+    width: 65%
+    height: 100vh
+    padding: 1%
+    transform: translateX(0px)
+    transition: transform 1s ease-in-out, 1s ease-in-out
+    flex: 1
+    row-gap: 20px
+
+    @media screen and (max-width: 450px)
+        transition: none
+        transform: translate(0%)
+        width: 100%
+        height: auto
+        &:hover
+            transform: none
+
+    .card-showcase
+
+        position: relative
+        width: clamp(26vw, 450px, 95vw)
+        overflow: hidden
+        border-radius: 10px
+        border: 1.7px solid $secondaryColorBackground
+        transform: rotatex(20deg) rotateY(35deg)
+        transition: all 0.2s ease-in-out
+        color: $secondaryColorBackground
+        font-weight: 200
+        mix-blend-mode: multiply
+
+        h1
+            font-size: clamp(2vw,55px,3vw)
+            margin: 2% 0
+
+            @media screen and(max-width: 450px)
+                text-align: left
+
+        &:hover
+            transform: translateY(-50px)
+
+            @media screen and(max-width: 450px)
+                transform: translateY(0)
+
+            .overlay
+                opacity: 0
+
+        .image-container
+            display: block
+            position: relative
+            overflow: hidden
+            height: 45%
+            border-radius: 5px
+
+        img
+            max-width: 650px
+
+        .card-content
+            padding: 3%
+
+            a
+                display: inline-block
+                color: $secondaryColorBackground
+                text-decoration: none
+                border: 1.5px solid $secondaryColorBackground
+                padding: 3% 3%
+                border-radius: 5px
+                transition: all 0.2s ease-in-out
+                background-color: aliceblue
+
+                &:hover
+                    background-color: $colorSecondary
+                &:active
+                    background-color: $colorTerciary
+                @media screen and (max-width: 450px)
+                    border: 1px solid $secondaryColorBackground
+                    font-size: 16px
+
+        p
+            font-size: clamp(1vw,16px,18px)
+            text-align: justify
+            margin-bottom: 20px
+
+        @media screen and (max-width: 450px)
+            transition: none
+            transform: translate(0%)
+            width: 100%
+            height: auto
+            border-radius: 5px
+            @include mobileCardAnimation()
+
+// section wrapper
+
+.section-wrapper
+    // overflow-x: hidden
+
+    h1
+        font-size: clamp(3vw,80px,11vw)
+        margin: 5% 0
+
+// container wrapper
+
+.container-wrapper
+
+    margin: 0 auto 0 auto
+    max-width: 100%
+    padding: 5vw
+    padding-bottom: 0
+
+    @media screen and (max-width: 450px)
+        padding: 1%
+    .flex-column
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        column-gap: 2vw
+        row-gap: 2vw
+
+        > a
+            text-decoration: none
+            color: inherit
+            background-color: aliceblue
+            padding: 2.5% 3.5%
+            font-size: clamp(1vw,22px,5.5vw)
+            border-radius: 4px
+            margin-top: 10px
+            align-self: flex-end
+            transition: all 0.2s ease-in-out
+            border: 1.5px solid $secondaryColorBackground
+            margin-bottom: 50px
+            &:hover
+                background-color: $colorEnphasis
+
+            &:active
+                background-color: $colorTerciary
+
+// generic hero wwrapper 
+.generic-hero-wrapper
+    @include centerFlex($direction: row,$justifyContent: center)
+    position: relative
+    height: 110vh
+    color: $secondaryColorBackground
+    width: 100%
+    margin: auto
+    padding: 0 5%
+    transition: all 0.5s ease-in-out 0.5s
+    color: $mainColorBackground
+    background-color: $secondaryColorBackground
+    overflow: hidden
+
+    &.work-page
+        flex-direction: column
+        img
+            max-height: 800px
+
+.home-sec-wrap
+    color: $secondaryColorBackground
+    transition: all 0.5s ease-in-out
+    &.is-reveal
+        background-color: $secondaryColorBackground
+        color: $mainColorBackground
+
+.paragraph-big
+
+    font-size: clamp(2vw,80px,9vw)
+
+    line-height: 110%
+    transition: color 0.5s ease-in-out
+
+    @media screen and (max-width: 450px)
+        text-align: center
+
+.paragraph-small
+
+    font-size: clamp(2vw,40px,6vw)
+
+    font-weight: 100
+    @media screen and (max-width: 450px)
+        text-align: center

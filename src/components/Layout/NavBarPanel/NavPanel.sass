@@ -1,0 +1,81 @@
+@import "../../../styles/helpers/variables"
+@import "../../../styles/helpers/mixins"
+
+.nav-panel-wrapper
+    position: absolute
+
+.nav-button
+    position: fixed
+    width: 7vh
+    height: 7vh
+    border-radius: 50%
+    z-index: 2
+    right: 1.5vh
+    top: 1.5vh
+    background-color: $secondaryColorBackground
+    display: flex
+    align-items: center
+    justify-content: center
+    color: $mainColorBackground
+    font-weight: 200
+    transition: all 0.2s ease-in-out
+    border: 1px solid $mainColorBackground
+
+    &.open
+        background-color: $mainColorBackground
+        color: $secondaryColorBackground
+    &:hover
+        cursor: pointer
+        background-color: $colorSecondary
+
+    &.close
+        &.up
+            transform: translateX(125%)
+            @media screen and(max-width: 450px)
+                transform: translateX(0)
+
+    span
+
+        font-size: 2.5vh
+
+.nav-panel
+    display: flex
+    flex-direction: column
+    justify-content: center
+    top: 0
+    row-gap: 4%
+    padding-left: 3%
+    margin-left: auto
+    position: fixed
+    width: 100%
+    height: 100vh
+    background-color: $secondaryColorBackground
+    z-index: 1
+    transform: translateX(100%)
+    border-top-left-radius: 150px
+    border-bottom-left-radius: 150px
+    border-left: 1.5px solid $mainColorBackground
+    transition: all 0.4s ease-in-out
+
+    a
+        color: $mainColorBackground
+        font-size: clamp(1vw,110px,10vw)
+        transition: all 0.2s ease-in-out
+
+        &:hover
+            color: $colorEnphasis
+            // padding-left: 50px
+
+            &::before
+                content: '// '
+                width: 0px
+                height: 0
+
+    &.open
+
+        transform: translateX(25%)
+        border-top-left-radius: 0%
+        border-bottom-left-radius: 0%
+
+        @media screen and (max-width: 450px)
+            transform: translateX(0%)
